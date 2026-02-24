@@ -9,9 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "framer-motion": "^12.34.3",
+    "html2canvas-pro": "^2.0.1",
+    "jspdf": "^4.2.0",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-countup": "^6.5.3",
+    "react-dom": "19.2.3",
+    "react-hot-toast": "^2.6.0",
+    "react-intersection-observer": "^10.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",

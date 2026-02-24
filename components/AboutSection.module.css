@@ -1,0 +1,128 @@
+.section {
+    padding: 6rem 0;
+    background: var(--dark-2);
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 35, 42, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+}
+
+.imageWrap {
+    position: relative;
+}
+
+.imageBox {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.badge {
+    position: absolute;
+    bottom: -1rem;
+    right: -0.5rem;
+    background: var(--red);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(232, 35, 42, 0.4);
+}
+
+@media (min-width: 768px) {
+    .badge {
+        right: -1.5rem;
+        bottom: -1.5rem;
+    }
+}
+
+.badgeNum {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+}
+
+.badgeText {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.desc {
+    font-size: 0.95rem;
+    color: var(--gray-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 480px) {
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.featureIcon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}

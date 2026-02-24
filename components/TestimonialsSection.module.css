@@ -1,0 +1,140 @@
+.section {
+    padding: 6rem 0;
+    background: var(--dark-2);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .carousel {
+        padding: 3rem 3.5rem;
+    }
+}
+
+.quoteIcon {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    opacity: 0.5;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.stars {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.text {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.authorName {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.authorRole {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gray-light);
+    margin-top: 2px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.arrowBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--dark-4);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.arrowBtn:hover {
+    border-color: var(--red);
+    background: rgba(232, 35, 42, 0.1);
+}
+
+.dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.dotActive {
+    background: var(--red);
+    width: 24px;
+    border-radius: 4px;
+}
