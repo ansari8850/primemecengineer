@@ -12,8 +12,9 @@ const COLORS = {
     dark3: [24, 27, 30] as [number, number, number],
     dark4: [34, 38, 42] as [number, number, number],
     white: [255, 255, 255] as [number, number, number],
+    off_white: [248, 249, 250] as [number, number, number],
     gray: [156, 163, 175] as [number, number, number],
-    grayDark: [107, 114, 128] as [number, number, number],
+    grayDark: [75, 85, 99] as [number, number, number],
     green: [74, 222, 128] as [number, number, number],
 };
 
@@ -33,7 +34,8 @@ const clients = [
 ];
 
 const coreServices = [
-    { title: "Fire Hydrant & Sprinklers System", desc: "Complete supply, installation & AMC for industrial, commercial and residential buildings with IS/NBC compliance." },
+    { title: "Fire Hydrant System", desc: "Complete supply, installation & AMC of industrial grade fire hydrant valves, hoses & piping networks." },
+    { title: "Automatic Sprinkler (Irrigation) System", desc: "Advanced automatic sprinkler systems for fire protection and irrigation with high-precision control." },
     { title: "Fire Alarm & PA System", desc: "Advanced fire detection, alarm panels & public address systems for rapid response and mass evacuation." },
     { title: "Gas Suppression System", desc: "FM200, Novec 1230 & CO2 based clean agent systems for server rooms, data centers & critical facilities." },
     { title: "Water Mist & CO2 Suppression", desc: "High-pressure water mist and CO2 systems for specialized environments requiring efficient fire control." },
@@ -86,7 +88,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             const contentW = W - margin * 2;
 
             // ======= PAGE 1: COVER =======
-            doc.setFillColor(...COLORS.dark);
+            doc.setFillColor(...COLORS.white);
             doc.rect(0, 0, W, H, "F");
 
             // Top red accent bar
@@ -94,16 +96,22 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.rect(0, 0, W, 5, "F");
 
             // Company logo area
-            doc.setFillColor(...COLORS.dark2);
+            doc.setFillColor(...COLORS.off_white);
             drawRoundedRect(doc, margin, 15, contentW, 25, 4);
-            doc.setTextColor(...COLORS.white);
+
+            // Draw a subtle border for the logo wrap
+            doc.setDrawColor(230, 230, 230);
+            doc.setLineWidth(0.2);
+            doc.roundedRect(margin, 15, contentW, 25, 4, 4, "D");
+
+            doc.setTextColor(...COLORS.dark);
             doc.setFont("helvetica", "bold");
             doc.setFontSize(16);
             doc.text("PME", margin + 8, 30);
             doc.setFontSize(10);
             doc.setTextColor(...COLORS.red);
             doc.text("PRIME MECH ENGINEERS", margin + 26, 26);
-            doc.setTextColor(...COLORS.gray);
+            doc.setTextColor(...COLORS.grayDark);
             doc.setFont("helvetica", "normal");
             doc.setFontSize(7);
             doc.text("MEP, Fire & HVAC Solutions", margin + 26, 33);
@@ -114,7 +122,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.line(margin, 48, W - margin, 48);
 
             // Main Title
-            doc.setTextColor(...COLORS.white);
+            doc.setTextColor(...COLORS.dark);
             doc.setFontSize(36);
             doc.setFont("helvetica", "bold");
             doc.text("Protecting", margin, 75);
@@ -123,7 +131,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.text("Infrastructure", margin, 109);
 
             // Subtitle
-            doc.setTextColor(...COLORS.gray);
+            doc.setTextColor(...COLORS.grayDark);
             doc.setFont("helvetica", "normal");
             doc.setFontSize(11);
             const subText = "Your one-stop destination for MEP, Fire Fighting & HVAC Solutions. From design to installation, maintenance and compliance — we deliver complete fire protection and building services across Mumbai.";
@@ -140,20 +148,26 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             const boxW = (contentW - 15) / 4;
             stats.forEach((s, i) => {
                 const x = margin + i * (boxW + 5);
-                doc.setFillColor(...COLORS.dark2);
+                doc.setFillColor(245, 246, 247);
                 drawRoundedRect(doc, x, 155, boxW, 32, 3);
+
+                // Border for box
+                doc.setDrawColor(220, 222, 225);
+                doc.setLineWidth(0.2);
+                doc.roundedRect(x, 155, boxW, 32, 3, 3, "D");
+
                 doc.setTextColor(...COLORS.red);
                 doc.setFont("helvetica", "bold");
                 doc.setFontSize(20);
                 doc.text(s.num, x + boxW / 2, 172, { align: "center" });
-                doc.setTextColor(...COLORS.gray);
+                doc.setTextColor(...COLORS.grayDark);
                 doc.setFont("helvetica", "normal");
                 doc.setFontSize(7);
                 doc.text(s.label, x + boxW / 2, 180, { align: "center" });
             });
 
             // Company info banner
-            doc.setFillColor(...COLORS.dark3);
+            doc.setFillColor(245, 246, 247);
             drawRoundedRect(doc, margin, 200, contentW, 12, 3);
             doc.setTextColor(...COLORS.red);
             doc.setFont("helvetica", "bold");
@@ -161,15 +175,20 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.text("EST. JANUARY 2024  |  MUMBAI, MAHARASHTRA  |  9+ YEARS PERSONAL EXPERTISE", W / 2, 208, { align: "center" });
 
             // Contact info on cover
-            doc.setFillColor(...COLORS.dark2);
+            doc.setFillColor(245, 246, 247);
             drawRoundedRect(doc, margin, 222, contentW, 48, 4);
-            doc.setTextColor(...COLORS.white);
+
+            // Border for contact
+            doc.setDrawColor(220, 222, 225);
+            doc.roundedRect(margin, 222, contentW, 48, 4, 4, "D");
+
+            doc.setTextColor(...COLORS.dark);
             doc.setFont("helvetica", "bold");
             doc.setFontSize(11);
             doc.text("GET IN TOUCH", margin + 8, 235);
             doc.setFont("helvetica", "normal");
             doc.setFontSize(9);
-            doc.setTextColor(...COLORS.gray);
+            doc.setTextColor(...COLORS.grayDark);
             doc.text("Phone:  9967765728", margin + 8, 244);
             doc.text("Email:   primemechengineers@gmail.com", margin + 8, 252);
             doc.text("Address: SG Barve Marg, Chembur, Mumbai 400071", margin + 8, 260);
@@ -184,7 +203,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
 
             // ======= PAGE 2: CORE SERVICES =======
             doc.addPage();
-            doc.setFillColor(...COLORS.dark);
+            doc.setFillColor(...COLORS.white);
             doc.rect(0, 0, W, H, "F");
             doc.setFillColor(...COLORS.red);
             doc.rect(0, 0, W, 5, "F");
@@ -194,11 +213,11 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.setFont("helvetica", "bold");
             doc.setFontSize(8);
             doc.text("OUR EXPERTISE", margin, 18);
-            doc.setTextColor(...COLORS.white);
+            doc.setTextColor(...COLORS.dark);
             doc.setFontSize(24);
             doc.text("Core Fire Safety Services", margin, 32);
             doc.setFontSize(9);
-            doc.setTextColor(...COLORS.gray);
+            doc.setTextColor(...COLORS.grayDark);
             doc.setFont("helvetica", "normal");
             doc.text("Complete range of fire protection solutions with IS, NBC & NFPA compliance.", margin, 40);
 
@@ -213,8 +232,12 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
                 const x = margin + col * (cardW + 8);
                 const y = yPos + row * (cardH + 6);
 
-                doc.setFillColor(...COLORS.dark2);
+                doc.setFillColor(250, 251, 252);
                 drawRoundedRect(doc, x, y, cardW, cardH, 3);
+
+                doc.setDrawColor(230, 232, 235);
+                doc.setLineWidth(0.2);
+                doc.roundedRect(x, y, cardW, cardH, 3, 3, "D");
 
                 // Red accent
                 doc.setFillColor(...COLORS.red);
@@ -228,35 +251,43 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
                 doc.setFontSize(6);
                 doc.text(String(i + 1).padStart(2, "0"), x + cardW - 8, y + 7.5, { align: "center" });
 
-                doc.setTextColor(...COLORS.white);
+                doc.setTextColor(...COLORS.dark);
                 doc.setFont("helvetica", "bold");
-                doc.setFontSize(8.5);
-                doc.text(s.title, x + 6, y + 10);
-                doc.setTextColor(...COLORS.gray);
+                doc.setFontSize(8); // Reduced size slightly for layout
+
+                // Wrap title if needed
+                const titleLines = doc.splitTextToSize(s.title, cardW - 14);
+                doc.text(titleLines, x + 6, y + 10);
+
+                doc.setTextColor(...COLORS.grayDark);
                 doc.setFont("helvetica", "normal");
                 doc.setFontSize(7);
                 const descLines = doc.splitTextToSize(s.desc, cardW - 12);
-                doc.text(descLines, x + 6, y + 17);
+                doc.text(descLines, x + 6, y + 18);
             });
 
             // MEP & HVAC section
-            const mepY = yPos + 4 * (cardH + 6) + 8;
-            doc.setFillColor(...COLORS.dark3);
+            const mepY = yPos + 5 * (cardH + 6) + 4; // Adjusted for more services
+            doc.setFillColor(245, 246, 247);
             drawRoundedRect(doc, margin, mepY, contentW, 42, 4);
+
+            doc.setDrawColor(220, 222, 225);
+            doc.roundedRect(margin, mepY, contentW, 42, 4, 4, "D");
+
             doc.setTextColor(...COLORS.red);
             doc.setFont("helvetica", "bold");
             doc.setFontSize(10);
             doc.text("MEP & HVAC Solutions", margin + 8, mepY + 10);
-            doc.setTextColor(...COLORS.gray);
+            doc.setTextColor(...COLORS.grayDark);
             doc.setFont("helvetica", "normal");
             doc.setFontSize(8);
             mepServices.forEach((s, i) => {
                 const col = i < 3 ? 0 : 1;
                 const row = i < 3 ? i : i - 3;
                 const x = margin + 8 + col * (contentW / 2);
-                doc.setTextColor(...COLORS.green);
+                doc.setTextColor(...COLORS.red);
                 doc.text("●", x, mepY + 18 + row * 8);
-                doc.setTextColor(...COLORS.gray);
+                doc.setTextColor(...COLORS.dark);
                 doc.text(s, x + 5, mepY + 18 + row * 8);
             });
 
@@ -266,7 +297,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.setFont("helvetica", "bold");
             doc.setFontSize(8);
             doc.text("ADDITIONAL SERVICES", margin, otherY);
-            doc.setTextColor(...COLORS.gray);
+            doc.setTextColor(...COLORS.dark);
             doc.setFont("helvetica", "normal");
             doc.setFontSize(8);
             otherServices.forEach((s, i) => {
@@ -274,9 +305,9 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
                 const row = Math.floor(i / 2);
                 const x = margin + col * (contentW / 2);
                 doc.setTextColor(...COLORS.red);
-                doc.text("✓", x, otherY + 8 + row * 8);
-                doc.setTextColor(...COLORS.gray);
-                doc.text(s, x + 5, otherY + 8 + row * 8);
+                doc.text("✓", x, otherY + 10 + row * 8);
+                doc.setTextColor(...COLORS.grayDark);
+                doc.text(s, x + 5, otherY + 10 + row * 8);
             });
 
             // Page footer
@@ -289,7 +320,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
 
             // ======= PAGE 3: OUR PROJECTS / CLIENTS =======
             doc.addPage();
-            doc.setFillColor(...COLORS.dark);
+            doc.setFillColor(...COLORS.white);
             doc.rect(0, 0, W, H, "F");
             doc.setFillColor(...COLORS.red);
             doc.rect(0, 0, W, 5, "F");
@@ -299,10 +330,10 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.setFont("helvetica", "bold");
             doc.setFontSize(8);
             doc.text("OUR PROJECTS", margin, 18);
-            doc.setTextColor(...COLORS.white);
+            doc.setTextColor(...COLORS.dark);
             doc.setFontSize(24);
             doc.text("Trusted by Industry Leaders", margin, 32);
-            doc.setTextColor(...COLORS.gray);
+            doc.setTextColor(...COLORS.grayDark);
             doc.setFont("helvetica", "normal");
             doc.setFontSize(9);
             doc.text("Delivering excellence across residential, commercial, hospitality, educational & corporate sectors.", margin, 40);
@@ -318,12 +349,15 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
                 const x = margin + col * (cCardW + 8);
                 const y = cyPos + row * (cCardH + 6);
 
-                doc.setFillColor(...COLORS.dark2);
+                doc.setFillColor(250, 251, 252);
                 drawRoundedRect(doc, x, y, cCardW, cCardH, 3);
+
+                doc.setDrawColor(220, 222, 225);
+                doc.roundedRect(x, y, cCardW, cCardH, 3, 3, "D");
 
                 // Initial badge
                 const initials = c.name.split(" ").slice(0, 2).map((w) => w[0]).join("");
-                doc.setFillColor(...COLORS.dark3);
+                doc.setFillColor(240, 241, 242);
                 drawRoundedRect(doc, x + 4, y + 4, 16, 12, 2);
                 doc.setTextColor(...COLORS.red);
                 doc.setFont("helvetica", "bold");
@@ -331,7 +365,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
                 doc.text(initials, x + 12, y + 12, { align: "center" });
 
                 // Name
-                doc.setTextColor(...COLORS.white);
+                doc.setTextColor(...COLORS.dark);
                 doc.setFont("helvetica", "bold");
                 doc.setFontSize(7.5);
                 const nameLines = doc.splitTextToSize(c.name, cCardW - 26);
@@ -347,9 +381,9 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
 
             // Sector summary
             const sectorY = cyPos + 4 * (cCardH + 6) + 12;
-            doc.setFillColor(...COLORS.dark3);
+            doc.setFillColor(245, 246, 247);
             drawRoundedRect(doc, margin, sectorY, contentW, 30, 4);
-            doc.setTextColor(...COLORS.white);
+            doc.setTextColor(...COLORS.dark);
             doc.setFont("helvetica", "bold");
             doc.setFontSize(10);
             doc.text("Sectors We Serve", margin + 8, sectorY + 10);
@@ -363,13 +397,21 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
                 const x = margin + 8 + col * (contentW / 4);
                 doc.setTextColor(...COLORS.red);
                 doc.text("◆", x, sectorY + 18 + row * 8);
-                doc.setTextColor(...COLORS.gray);
+                doc.setTextColor(...COLORS.grayDark);
                 doc.text(s, x + 5, sectorY + 18 + row * 8);
             });
 
+            // Page footer
+            doc.setFillColor(...COLORS.red);
+            doc.rect(0, H - 9, W, 9, "F");
+            doc.setTextColor(...COLORS.white);
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(7);
+            doc.text("SUPPLY  •  INSTALLATION  •  AMC  •  MUMBAI  •  MAHARASHTRA", W / 2, H - 3, { align: "center" });
+
             // ======= PAGE 4: WHY CHOOSE US & CTA =======
             doc.addPage();
-            doc.setFillColor(...COLORS.dark);
+            doc.setFillColor(...COLORS.white);
             doc.rect(0, 0, W, H, "F");
             doc.setFillColor(...COLORS.red);
             doc.rect(0, 0, W, 5, "F");
@@ -379,7 +421,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.setFont("helvetica", "bold");
             doc.setFontSize(8);
             doc.text("WHY CHOOSE US", margin, 18);
-            doc.setTextColor(...COLORS.white);
+            doc.setTextColor(...COLORS.dark);
             doc.setFontSize(24);
             doc.text("Your Trusted Partner", margin, 32);
 
@@ -390,12 +432,15 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
                 const x = margin + col * (contentW / 2);
                 const y = 46 + row * 12;
 
-                doc.setFillColor(...COLORS.dark2);
+                doc.setFillColor(250, 251, 252);
                 drawRoundedRect(doc, x, y - 4, contentW / 2 - 4, 10, 2);
 
+                doc.setDrawColor(230, 232, 235);
+                doc.roundedRect(x, y - 4, contentW / 2 - 4, 10, 2, 2, "D");
+
                 doc.setFillColor(...COLORS.red);
-                doc.circle(x + 5, y + 1, 2, "F");
-                doc.setTextColor(...COLORS.white);
+                doc.circle(x + 5, y + 1, 1.5, "F");
+                doc.setTextColor(...COLORS.dark);
                 doc.setFont("helvetica", "normal");
                 doc.setFontSize(8);
                 doc.text(f, x + 11, y + 2);
@@ -407,12 +452,15 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.setFont("helvetica", "bold");
             doc.setFontSize(8);
             doc.text("OUR JOURNEY", margin, journeyY);
-            doc.setTextColor(...COLORS.white);
+            doc.setTextColor(...COLORS.dark);
             doc.setFontSize(18);
             doc.text("Experience & Excellence", margin, journeyY + 14);
 
-            doc.setFillColor(...COLORS.dark2);
+            doc.setFillColor(250, 251, 252);
             drawRoundedRect(doc, margin, journeyY + 20, contentW, 55, 4);
+
+            doc.setDrawColor(220, 222, 225);
+            doc.roundedRect(margin, journeyY + 20, contentW, 55, 4, 4, "D");
 
             // Timeline items
             const timeline = [
@@ -433,7 +481,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
                 doc.text(t.year, margin + 15, y + 2, { align: "center" });
 
                 // Description
-                doc.setTextColor(...COLORS.gray);
+                doc.setTextColor(...COLORS.grayDark);
                 doc.setFont("helvetica", "normal");
                 doc.setFontSize(7);
                 const tLines = doc.splitTextToSize(t.desc, contentW - 36);
@@ -447,28 +495,30 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
 
             doc.setTextColor(...COLORS.white);
             doc.setFont("helvetica", "bold");
-            doc.setFontSize(20);
-            doc.text("Ready to Secure Your", margin + 12, ctaY + 16);
-            doc.text("Property?", margin + 12, ctaY + 28);
+            doc.setFontSize(22);
+            doc.text("Ready to Secure Your", margin + 12, ctaY + 18);
+            doc.text("Property?", margin + 12, ctaY + 32);
 
             doc.setFont("helvetica", "normal");
-            doc.setFontSize(9);
-            doc.setTextColor(255, 255, 255);
-            doc.text("Contact us today for a free consultation and site survey.", margin + 12, ctaY + 38);
+            doc.setFontSize(10);
+            doc.text("Contact us today for a free consultation and site survey.", margin + 12, ctaY + 42);
 
             // Contact details at bottom
             const contactY = ctaY + 60;
-            doc.setFillColor(...COLORS.dark2);
+            doc.setFillColor(250, 251, 252);
             drawRoundedRect(doc, margin, contactY, contentW, 45, 4);
 
-            doc.setTextColor(...COLORS.white);
+            doc.setDrawColor(220, 222, 225);
+            doc.roundedRect(margin, contactY, contentW, 45, 4, 4, "D");
+
+            doc.setTextColor(...COLORS.dark);
             doc.setFont("helvetica", "bold");
             doc.setFontSize(11);
             doc.text("Contact Us", margin + 8, contactY + 12);
 
             doc.setFont("helvetica", "normal");
             doc.setFontSize(9);
-            doc.setTextColor(...COLORS.gray);
+            doc.setTextColor(...COLORS.grayDark);
             doc.text("Phone:     9967765728", margin + 8, contactY + 22);
             doc.text("Email:      primemechengineers@gmail.com", margin + 8, contactY + 30);
             doc.text("Address:  SG Barve Marg, Chembur, Mumbai 400071", margin + 8, contactY + 38);
@@ -479,7 +529,7 @@ export default function BrochureButton({ variant = "primary" }: { variant?: "pri
             doc.setTextColor(...COLORS.white);
             doc.setFont("helvetica", "bold");
             doc.setFontSize(7);
-            doc.text("PRIME MECH ENGINEERS  •  MEP, Fire & HVAC Solutions  •  EST. 2024  •  Mumbai", W / 2, H - 3, { align: "center" });
+            doc.text("PRIME MECH ENGINEERS  •  EST. 2024  •  MUMBAI  •  MAHARASHTRA", W / 2, H - 3, { align: "center" });
 
             // Save
             doc.save("Prime_Mech_Engineers_Brochure.pdf");

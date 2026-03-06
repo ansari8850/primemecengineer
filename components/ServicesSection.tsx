@@ -6,10 +6,16 @@ import styles from "./ServicesSection.module.css";
 
 const services = [
     {
-        title: "Fire Hydrant & Sprinklers System",
-        desc: "Complete supply, installation & AMC of fire hydrant and sprinkler systems for industrial, commercial and residential buildings.",
-        img: "/images/fire_hydrant_sprinkler.png",
+        title: "Fire Hydrant System",
+        desc: "Complete supply, installation & AMC of industrial grade fire hydrant valves, hoses & piping networks.",
+        img: "/images/fire_hydrant_system.png",
         icon: "🚒",
+    },
+    {
+        title: "Automatic Sprinkler (Irrigation) System",
+        desc: "Advanced automatic sprinkler systems for fire protection and irrigation solutions with high-precision control.",
+        img: "/images/sprinkler_system.png",
+        icon: "💦",
     },
     {
         title: "Fire Alarm & PA System",

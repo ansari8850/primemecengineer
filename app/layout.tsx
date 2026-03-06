@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     locale: "en_IN",
   },
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/images/favicon-tight.png",
+    apple: "/images/favicon-tight.png",
   },
 };
 
@@ -55,8 +55,8 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" type="image/png" href="/images/logo.png" />
-        <link rel="apple-touch-icon" href="/images/logo.png" />
+        <link rel="icon" type="image/png" href="/images/favicon-tight.png" />
+        <link rel="apple-touch-icon" href="/images/favicon-tight.png" />
       </head>
       <body>
         <ThemeProvider>
