@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import ThemeToggle from "./ThemeToggle";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
@@ -35,8 +37,17 @@ export default function Navbar() {
         <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
             <div className={`container ${styles.inner}`}>
                 <Link href="/" className={styles.logo}>
-                    <span className={styles.logoIcon}>🔥</span>
-                    <div>
+                    <div className={styles.logoIconWrap}>
+                        <Image
+                            src="/images/logo.png"
+                            alt="PME"
+                            width={80}
+                            height={60}
+                            className={styles.logoIcon}
+                            priority
+                        />
+                    </div>
+                    <div className={styles.logoText}>
                         <span className={styles.logoMain}>Prime Mech</span>
                         <span className={styles.logoSub}>Engineers</span>
                     </div>
@@ -56,23 +67,27 @@ export default function Navbar() {
                     ))}
                 </ul>
 
-                <a href="tel:9967765728" className={`btn-primary ${styles.ctaBtn}`}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.9 13.5 19.79 19.79 0 01.87 4.88a2 2 0 012-2.18h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1-1a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72a2 2 0 011.72 2z" />
-                    </svg>
-                    Call Us
-                </a>
+                <div className={styles.rightActions}>
+                    <ThemeToggle />
 
-                <button
-                    className={styles.hamburger}
-                    onClick={() => setOpen(!open)}
-                    aria-label="Toggle menu"
-                    id="hamburger-btn"
-                >
-                    <span className={`${styles.line} ${open ? styles.line1Open : ""}`} />
-                    <span className={`${styles.line} ${open ? styles.line2Open : ""}`} />
-                    <span className={`${styles.line} ${open ? styles.line3Open : ""}`} />
-                </button>
+                    <a href="tel:9967765728" className={`btn-primary ${styles.ctaBtn}`}>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.9 13.5 19.79 19.79 0 01.87 4.88a2 2 0 012-2.18h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1-1a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72a2 2 0 011.72 2z" />
+                        </svg>
+                        Call Us
+                    </a>
+
+                    <button
+                        className={styles.hamburger}
+                        onClick={() => setOpen(!open)}
+                        aria-label="Toggle menu"
+                        id="hamburger-btn"
+                    >
+                        <span className={`${styles.line} ${open ? styles.line1Open : ""}`} />
+                        <span className={`${styles.line} ${open ? styles.line2Open : ""}`} />
+                        <span className={`${styles.line} ${open ? styles.line3Open : ""}`} />
+                    </button>
+                </div>
             </div>
 
             <div className={`${styles.mobileMenu} ${open ? styles.mobileOpen : ""}`}>
@@ -86,9 +101,12 @@ export default function Navbar() {
                         {l.label}
                     </a>
                 ))}
-                <a href="tel:9967765728" className={`btn-primary ${styles.mobileCta}`}>
-                    📞 9967765728
-                </a>
+                <div className={styles.mobileBottom}>
+                    <ThemeToggle />
+                    <a href="tel:9967765728" className={`btn-primary ${styles.mobileCta}`}>
+                        📞 9967765728
+                    </a>
+                </div>
             </div>
         </nav>
     );

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Footer.module.css";
 
 const services = [
@@ -9,6 +10,7 @@ const services = [
     "Water Mist Suppression",
     "Kitchen Suppression",
     "CCTV & Security",
+    "HVAC Solutions",
 ];
 
 const quickLinks = [
@@ -34,15 +36,24 @@ export default function Footer() {
             <div className={`container ${styles.grid}`}>
                 <div className={styles.brand}>
                     <Link href="/" className={styles.logo}>
-                        <span className={styles.logoIcon}>🔥</span>
+                        <div className={styles.logoIconWrap}>
+                            <Image
+                                src="/images/logo.png"
+                                alt="PME"
+                                width={80}
+                                height={60}
+                                className={styles.logoIcon}
+                            />
+                        </div>
                         <div>
                             <span className={styles.logoMain}>Prime Mech</span>
                             <span className={styles.logoSub}>Engineers</span>
                         </div>
                     </Link>
+                    <p className={styles.tagline}>MEP, Fire & HVAC Solutions</p>
                     <p className={styles.brandDesc}>
-                        Experts in all types of Fire Fighting Systems. Delivering safety
-                        solutions you can trust across Mumbai and Maharashtra.
+                        Experts in all types of Fire Fighting & MEP Systems. Delivering
+                        safety solutions you can trust across Mumbai and Maharashtra since 2024.
                     </p>
                     <div className={styles.socials}>
                         {["facebook", "instagram", "linkedin"].map((s) => (
@@ -106,7 +117,7 @@ export default function Footer() {
                 <div className="container">
                     <p className={styles.copyright}>
                         © {new Date().getFullYear()} Prime Mech Engineers. All rights
-                        reserved.
+                        reserved. | MEP, Fire & HVAC Solutions
                     </p>
                 </div>
             </div>

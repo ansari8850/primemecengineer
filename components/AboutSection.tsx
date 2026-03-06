@@ -7,6 +7,10 @@ import styles from "./AboutSection.module.css";
 export default function AboutSection() {
     const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
+    /* Company registered January 2024 — dynamic year calculation */
+    const companyYears = new Date().getFullYear() - 2024 + (new Date().getMonth() >= 0 ? 1 : 0); // at least 1+
+    const yearsLabel = companyYears <= 1 ? "1+" : `${companyYears}+`;
+
     return (
         <section className={styles.section} id="about" ref={ref}>
             <div className={`container ${styles.grid}`}>
@@ -26,8 +30,8 @@ export default function AboutSection() {
                         />
                     </div>
                     <div className={styles.badge}>
-                        <span className={styles.badgeNum}>15+</span>
-                        <span className={styles.badgeText}>Years of Excellence</span>
+                        <span className={styles.badgeNum}>9+</span>
+                        <span className={styles.badgeText}>Years of Experience</span>
                     </div>
                 </motion.div>
 
@@ -40,29 +44,48 @@ export default function AboutSection() {
                     <span className="section-tag">Who We Are</span>
                     <h2 className="section-title">
                         Your Trusted Partner in{" "}
-                        <span className="gradient-text">Fire Safety</span>
+                        <span className="gradient-text">MEP, Fire & HVAC</span>
                     </h2>
                     <p className={styles.desc}>
-                        <strong>Prime Mech Engineers</strong> is a leading fire safety
-                        solutions provider based in Mumbai, Maharashtra. We specialize in
-                        the design, supply, installation, testing &amp; commissioning, and
-                        annual maintenance of all types of fire fighting systems.
+                        <strong>Prime Mech Engineers</strong> is a leading MEP, Fire Fighting
+                        & HVAC solutions provider based in Mumbai, Maharashtra. Registered in
+                        January 2024 and backed by <strong>9+ years of personal industry
+                            experience</strong>, we specialize in the design, supply, installation,
+                        testing & commissioning, and annual maintenance of all types of fire
+                        fighting and HVAC systems.
                     </p>
                     <p className={styles.desc}>
                         Our team of certified professionals ensures that every project is
                         executed with precision, adhering to IS, NBC, and NFPA standards.
-                        From high-rise buildings to industrial complexes and commercial
-                        establishments, we deliver comprehensive fire protection solutions
-                        that save lives and protect assets.
+                        From premium residential towers like <em>Oberoi Exquisite</em> and
+                        <em> Akasa Worli</em> to renowned institutions like <em>Mount Literia
+                            School BKC</em> and hospitality giants like <em>The Fern Hotel</em>,
+                        we deliver comprehensive fire protection and MEP solutions that save
+                        lives and protect assets.
                     </p>
+
+                    <div className={styles.statsRow}>
+                        <div className={styles.statBox}>
+                            <span className={styles.statNum}>{yearsLabel}</span>
+                            <span className={styles.statLabel}>Company Years</span>
+                        </div>
+                        <div className={styles.statBox}>
+                            <span className={styles.statNum}>9+</span>
+                            <span className={styles.statLabel}>Years Experience</span>
+                        </div>
+                        <div className={styles.statBox}>
+                            <span className={styles.statNum}>12+</span>
+                            <span className={styles.statLabel}>Happy Clients</span>
+                        </div>
+                    </div>
 
                     <div className={styles.features}>
                         {[
                             "Licensed & Certified Professionals",
                             "IS, NBC & NFPA Compliant",
-                            "End-to-End Fire Safety Solutions",
+                            "End-to-End MEP & Fire Safety",
                             "24/7 Emergency Support",
-                            "Competitive Pricing &  Quality",
+                            "Competitive Pricing & Quality",
                             "On-Time Project Delivery",
                         ].map((f) => (
                             <div key={f} className={styles.feature}>

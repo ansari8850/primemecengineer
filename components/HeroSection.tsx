@@ -23,16 +23,16 @@ export default function HeroSection() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className={styles.textBlock}
                 >
-                    <span className="section-tag">🔥 Trusted Fire Safety Partner</span>
+                    <span className="section-tag">🔥 Trusted MEP & Fire Safety Partner</span>
                     <h1 className={styles.heading}>
                         Protecting Lives &amp;{" "}
                         <span className="gradient-text">Infrastructure</span> with Expert
-                        Fire Solutions
+                        MEP, Fire & HVAC Solutions
                     </h1>
                     <p className={styles.sub}>
-                        Experts in all types of Fire Fighting Systems — Fire Extinguishers,
-                        Fire Hydrant Systems, Sprinklers, Fire Alarm and more. Serving
-                        Mumbai and Maharashtra since day one.
+                        Prime Mech Engineers — Your complete MEP, Fire Fighting &
+                        HVAC solutions provider. Fire Hydrant, Sprinklers, Fire Alarm,
+                        Gas Suppression, CCTV & more. Serving Mumbai since 2024 with 9+ years of expertise.
                     </p>
                     <div className={styles.buttons}>
                         <a href="#contact" className="btn-primary">
@@ -53,9 +53,9 @@ export default function HeroSection() {
                     className={styles.stats}
                 >
                     {[
-                        { num: "500+", label: "Projects Completed" },
-                        { num: "15+", label: "Years Experience" },
-                        { num: "200+", label: "Happy Clients" },
+                        { num: "12+", label: "Projects Completed" },
+                        { num: "9+", label: "Years Experience" },
+                        { num: "12+", label: "Happy Clients" },
                         { num: "24/7", label: "Support Available" },
                     ].map((s) => (
                         <div key={s.label} className={styles.statItem}>

@@ -1,6 +1,6 @@
 .section {
     padding: 6rem 0;
-    background: var(--dark-2);
+    background: var(--bg-secondary);
 }
 
 .header {
@@ -14,7 +14,7 @@
 .carousel {
     max-width: 700px;
     margin: 0 auto;
-    background: var(--dark-3);
+    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 2.5rem 2rem;
@@ -48,9 +48,10 @@
 
 .text {
     font-size: clamp(1rem, 1.5vw, 1.15rem);
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-primary);
     line-height: 1.8;
     font-style: italic;
+    opacity: 0.85;
 }
 
 .author {
@@ -78,13 +79,13 @@
     display: block;
     font-weight: 700;
     font-size: 0.95rem;
-    color: white;
+    color: var(--text-primary);
 }
 
 .authorRole {
     display: block;
     font-size: 0.8rem;
-    color: var(--gray-light);
+    color: var(--text-secondary);
     margin-top: 2px;
 }
 
@@ -103,8 +104,8 @@
     height: 40px;
     border-radius: 50%;
     border: 1px solid var(--border);
-    background: var(--dark-4);
-    color: white;
+    background: var(--bg-elevated);
+    color: var(--text-primary);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -114,7 +115,7 @@
 
 .arrowBtn:hover {
     border-color: var(--red);
-    background: rgba(232, 35, 42, 0.1);
+    background: rgba(194, 58, 34, 0.1);
 }
 
 .dots {
@@ -127,7 +128,8 @@
     height: 8px;
     border-radius: 50%;
     border: none;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--text-muted);
+    opacity: 0.3;
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0;
@@ -135,6 +137,7 @@
 
 .dotActive {
     background: var(--red);
+    opacity: 1;
     width: 24px;
     border-radius: 4px;
 }

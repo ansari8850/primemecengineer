@@ -1,6 +1,6 @@
 .section {
     padding: 6rem 0;
-    background: var(--dark-2);
+    background: var(--bg-secondary);
     position: relative;
     overflow: hidden;
 }
@@ -13,7 +13,7 @@
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(232, 35, 42, 0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(194, 58, 34, 0.06) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -52,7 +52,7 @@
     padding: 1rem 1.5rem;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 15px 30px rgba(232, 35, 42, 0.4);
+    box-shadow: 0 15px 30px rgba(194, 58, 34, 0.4);
 }
 
 @media (min-width: 768px) {
@@ -89,9 +89,44 @@
 
 .desc {
     font-size: 0.95rem;
-    color: var(--gray-light);
+    color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 1rem;
+}
+
+.statsRow {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1rem 0 0.5rem;
+    flex-wrap: wrap;
+}
+
+.statBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    background: rgba(194, 58, 34, 0.08);
+    border: 1px solid rgba(194, 58, 34, 0.15);
+    border-radius: 12px;
+    min-width: 90px;
+}
+
+.statNum {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+}
+
+.statLabel {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
 }
 
 .features {
@@ -113,7 +148,7 @@
     gap: 0.625rem;
     font-size: 0.9rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-primary);
 }
 
 .featureIcon {

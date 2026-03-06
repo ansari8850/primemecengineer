@@ -139,7 +139,7 @@ export default function ServicesSection() {
                     <div className={styles.otherGrid}>
                         {otherServices.map((s) => (
                             <div key={s} className={styles.otherItem}>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8232A" strokeWidth="2.5"><path d="M20 6L9 17l-5-5" /></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C23A22" strokeWidth="2.5"><path d="M20 6L9 17l-5-5" /></svg>
                                 <span>{s}</span>
                             </div>
                         ))}

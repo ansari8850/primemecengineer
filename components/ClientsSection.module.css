@@ -1,14 +1,48 @@
 .section {
     padding: 6rem 0;
-    background: var(--dark);
+    background: var(--bg-primary);
 }
 
 .header {
     text-align: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.tagline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    padding: 1rem 2rem;
+    background: rgba(194, 58, 34, 0.08);
+    border: 1px solid rgba(194, 58, 34, 0.2);
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+.taglineBrand {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.taglineSep {
+    color: var(--red);
+    font-weight: 300;
+    font-size: 1.25rem;
+}
+
+.taglineDesc {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
 }
 
 .grid {
@@ -31,52 +65,81 @@
 
 @media (min-width: 1024px) {
     .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
         grid-template-columns: repeat(6, 1fr);
     }
 }
 
 .card {
-    background: var(--dark-3);
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem 1rem;
+    border-radius: 14px;
+    padding: 1.25rem 1rem;
     transition: all 0.3s ease;
     cursor: default;
 }
 
 .card:hover {
-    border-color: rgba(232, 35, 42, 0.3);
-    background: var(--dark-4);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--border-hover);
+    background: var(--bg-elevated);
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
 }
 
 .cardInner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     text-align: center;
+}
+
+.initialWrap {
+    margin-bottom: 0.25rem;
 }
 
 .initial {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: linear-gradient(135deg, rgba(232, 35, 42, 0.15), rgba(249, 115, 22, 0.1));
-    border: 1px solid rgba(232, 35, 42, 0.25);
+    border: 1px solid;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 800;
-    color: var(--red);
 }
 
 .name {
     font-size: 0.8rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--text-primary);
     line-height: 1.3;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.typeBadge {
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 100px;
+    border: 1px solid;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.125rem;
 }
